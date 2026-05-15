@@ -1,0 +1,28 @@
+# BasicGetGrassTouchStatusFlow
+
+main: kit: flow: BasicGetGrassTouchStatusFlow:
+{
+  entity: "get_grass_touch_status",
+  kind: "basic",
+  name: "BasicGetGrassTouchStatusFlow",
+  step: [
+    {
+      input: {
+        ref: "get_grass_touch_status_ref01",
+        srcdatavar: "get_grass_touch_status_ref01_data",
+        suffix: "_dt0"
+      }
+
+      op: "load",
+      valid: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-get_grass_touch_status_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGetGrassTouchStatusFlow"
+}

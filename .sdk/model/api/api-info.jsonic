@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://is-kim-playing-steam.up.railway.app"
+      }
+      description: "This API provides information about whether Kim has touched grass or not. It also includes details about the last known status and message regarding Kim's outdoor activity."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://is-kim-playing-steam.up.railway.app"
+        }
+      ]
+      title: "Grass Touch API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

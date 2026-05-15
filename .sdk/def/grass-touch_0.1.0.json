@@ -1,0 +1,79 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Grass Touch API",
+    "description": "This API provides information about whether Kim has touched grass or not. It also includes details about the last known status and message regarding Kim's outdoor activity.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://is-kim-playing-steam.up.railway.app"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://is-kim-playing-steam.up.railway.app",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/": {
+      "get": {
+        "summary": "Get grass touch status",
+        "description": "Retrieves the current status of whether Kim has touched grass, including the last seen timestamp and a message about outdoor activity.",
+        "operationId": "getGrassTouchStatus",
+        "responses": {
+          "200": {
+            "description": "Successful response with grass touch status information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GrassTouchStatus"
+                },
+                "example": {
+                  "online": true,
+                  "lastSeen": "2026-02-15T22:54:07.980Z",
+                  "message": "Even dictators need a break sometimes"
+                }
+              }
+            }
+          }
+        },
+        "tags": [
+          "Status"
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "GrassTouchStatus": {
+        "type": "object",
+        "properties": {
+          "online": {
+            "type": "boolean",
+            "description": "Indicates whether Kim is currently online or has touched grass (offline)"
+          },
+          "lastSeen": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the last known status update in ISO 8601 format"
+          },
+          "message": {
+            "type": "string",
+            "description": "A message providing context or commentary about Kim's current outdoor activity status"
+          }
+        },
+        "required": [
+          "online",
+          "lastSeen",
+          "message"
+        ]
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Status",
+      "description": "Operations related to grass touch status"
+    }
+  ]
+}

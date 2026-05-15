@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "get_grass_touch_status": {
+      "GET_GRASS_TOUCH_STATUS00": {
+        "last_seen": "s1e",
+        "message": "s1f",
+        "online": true
+      },
+      "GET_GRASS_TOUCH_STATUS01": {
+        "last_seen": "s3c",
+        "message": "s3d",
+        "online": true
+      },
+      "GET_GRASS_TOUCH_STATUS02": {
+        "last_seen": "s5a",
+        "message": "s5b",
+        "online": true
+      }
+    }
+  },
+  "new": {
+    "get_grass_touch_status": {
+      "get_grass_touch_status_ref01": {
+        "last_seen": "s78",
+        "message": "s79",
+        "online": true
+      }
+    }
+  }
+}
