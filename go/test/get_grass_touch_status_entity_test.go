@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/grass-touch-sdk"
-	"github.com/voxgig-sdk/grass-touch-sdk/core"
+	sdk "github.com/voxgig-sdk/grass-touch-sdk/go"
+	"github.com/voxgig-sdk/grass-touch-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/grass-touch-sdk/go/utility/struct"
 )
 
 func TestGetGrassTouchStatusEntity(t *testing.T) {

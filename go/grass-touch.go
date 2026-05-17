@@ -1,10 +1,10 @@
 package voxgiggrasstouchsdk
 
 import (
-	"github.com/voxgig-sdk/grass-touch-sdk/core"
-	"github.com/voxgig-sdk/grass-touch-sdk/entity"
-	"github.com/voxgig-sdk/grass-touch-sdk/feature"
-	_ "github.com/voxgig-sdk/grass-touch-sdk/utility"
+	"github.com/voxgig-sdk/grass-touch-sdk/go/core"
+	"github.com/voxgig-sdk/grass-touch-sdk/go/entity"
+	"github.com/voxgig-sdk/grass-touch-sdk/go/feature"
+	_ "github.com/voxgig-sdk/grass-touch-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

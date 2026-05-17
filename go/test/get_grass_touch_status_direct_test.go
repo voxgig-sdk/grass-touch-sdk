@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/grass-touch-sdk"
-	"github.com/voxgig-sdk/grass-touch-sdk/core"
+	sdk "github.com/voxgig-sdk/grass-touch-sdk/go"
+	"github.com/voxgig-sdk/grass-touch-sdk/go/core"
 )
 
 func TestGetGrassTouchStatusDirect(t *testing.T) {

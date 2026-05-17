@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/grass-touch-sdk/core"
+	"github.com/voxgig-sdk/grass-touch-sdk/go/core"
 )
 
 type BaseFeature struct {

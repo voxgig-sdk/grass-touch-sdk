@@ -4,17 +4,20 @@
       "GET_GRASS_TOUCH_STATUS00": {
         "last_seen": "s1e",
         "message": "s1f",
-        "online": true
+        "online": true,
+        "id": "GET_GRASS_TOUCH_STATUS00"
       },
       "GET_GRASS_TOUCH_STATUS01": {
         "last_seen": "s3c",
         "message": "s3d",
-        "online": true
+        "online": true,
+        "id": "GET_GRASS_TOUCH_STATUS01"
       },
       "GET_GRASS_TOUCH_STATUS02": {
         "last_seen": "s5a",
         "message": "s5b",
-        "online": true
+        "online": true,
+        "id": "GET_GRASS_TOUCH_STATUS02"
       }
     }
   },

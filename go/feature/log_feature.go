@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/grass-touch-sdk/core"
+	"github.com/voxgig-sdk/grass-touch-sdk/go/core"
 )
 
 type LogFeature struct {
