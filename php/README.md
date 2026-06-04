@@ -20,9 +20,7 @@ loading a specific record.
 <?php
 require_once 'grasstouch_sdk.php';
 
-$client = new GrassTouchSDK([
-    "apikey" => getenv("GRASS-TOUCH_APIKEY"),
-]);
+$client = new GrassTouchSDK([]);
 ```
 
 ### 3. Load a getgrasstouchstatus
@@ -113,7 +111,6 @@ Create a `.env.local` file at the project root:
 
 ```
 GRASS-TOUCH_TEST_LIVE=TRUE
-GRASS-TOUCH_APIKEY=<your-key>
 ```
 
 Then run:
@@ -136,7 +133,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |

@@ -16,7 +16,17 @@
           }
         ],
         "title": "Grass Touch API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Check whether Kim has touched grass lately — a whimsical Steam-vs-outdoors status feed",
+        "homepage": "https://is-kim-playing-steam.up.railway.app",
+        "docs_url": "https://freepublicapis.com/grass-touch-api",
+        "license_short": "Not specified",
+        "license_md": "- No licence is published on the API homepage or the freepublicapis.com catalogue entry.\n- Treat the service as a casual, novelty endpoint; do not rely on it for production use.\n- Attribution to the upstream service (`is-kim-playing-steam.up.railway.app`) is courteous if you redistribute the data.",
+        "about_md": "The Grass Touch API is a tongue-in-cheek personal status endpoint hosted on Railway at [is-kim-playing-steam.up.railway.app](https://is-kim-playing-steam.up.railway.app). It answers a single question: has Kim touched grass, or are they on Steam?\n\nWhat you get from the API:\n- A status indicator for Kim's most recent known activity (indoor / outdoor).\n- A single `GET /` root endpoint that returns the current snapshot.\n\nOperational notes: the freepublicapis.com catalogue reports CORS disabled, an average response time around 1.3s, and a low historical reliability score, so expect occasional downtime. No authentication or rate-limit policy is documented.",
+        "entity_desc": {
+          "get_grass_touch_status": "The current grass-touch / Steam-playing status for Kim, exposed at the root path `GET /`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -24,7 +34,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "get_grass_touch_status": {
