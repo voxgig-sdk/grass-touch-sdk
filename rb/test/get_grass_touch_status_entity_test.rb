@@ -82,6 +82,7 @@ def get_grass_touch_status_basic_setup(extra)
     "GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID" => idmap,
     "GRASSTOUCH_TEST_LIVE" => "FALSE",
     "GRASSTOUCH_TEST_EXPLAIN" => "FALSE",
+    "GRASSTOUCH_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -93,6 +94,7 @@ def get_grass_touch_status_basic_setup(extra)
   if env["GRASSTOUCH_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["GRASSTOUCH_APIKEY"],
       },
       extra || {},
     ])

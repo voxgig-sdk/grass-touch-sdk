@@ -99,12 +99,14 @@ func get_grass_touch_statusDirectSetup(mockres any) *get_grass_touch_statusDirec
 	env := envOverride(map[string]any{
 		"GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID": map[string]any{},
 		"GRASSTOUCH_TEST_LIVE":    "FALSE",
+		"GRASSTOUCH_APIKEY":       "NONE",
 	})
 
 	live := env["GRASSTOUCH_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["GRASSTOUCH_APIKEY"],
 		}
 		client := sdk.NewGrassTouchSDK(mergedOpts)
 

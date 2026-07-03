@@ -15,6 +15,9 @@ def make_config():
         },
         "options": {
             "base": "https://is-kim-playing-steam.up.railway.app",
+            "auth": {
+                "prefix": "Bearer",
+            },
             "headers": {
         "content-type": "application/json",
       },
@@ -26,47 +29,47 @@ def make_config():
       "get_grass_touch_status": {
         "fields": [
           {
+            "active": True,
             "name": "last_seen",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 0,
           },
           {
+            "active": True,
             "name": "message",
             "req": True,
             "type": "`$STRING`",
-            "active": True,
             "index$": 1,
           },
           {
+            "active": True,
             "name": "online",
             "req": True,
             "type": "`$BOOLEAN`",
-            "active": True,
             "index$": 2,
           },
         ],
         "name": "get_grass_touch_status",
         "op": {
           "load": {
+            "input": "data",
             "name": "load",
             "points": [
               {
+                "active": True,
+                "args": {},
                 "method": "GET",
                 "orig": "/",
+                "parts": [],
+                "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "active": True,
-                "parts": [],
-                "args": {},
-                "select": {},
                 "index$": 0,
               },
             ],
-            "input": "data",
             "key$": "load",
           },
         },

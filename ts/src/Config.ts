@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://is-kim-playing-steam.up.railway.app',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,47 +59,47 @@ class Config {
     "get_grass_touch_status": {
       "fields": [
         {
+          "active": true,
           "name": "last_seen",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "message",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "online",
           "req": true,
           "type": "`$BOOLEAN`",
-          "active": true,
           "index$": 2
         }
       ],
       "name": "get_grass_touch_status",
       "op": {
         "load": {
+          "input": "data",
           "name": "load",
           "points": [
             {
+              "active": true,
+              "args": {},
               "method": "GET",
               "orig": "/",
+              "parts": [],
+              "select": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
-              "parts": [],
-              "args": {},
-              "select": {},
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "load"
         }
       },

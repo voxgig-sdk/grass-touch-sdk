@@ -1,18 +1,8 @@
 # GrassTouch SDK
 
-Check whether Kim has touched grass lately — a whimsical Steam-vs-outdoors status feed
+Grass Touch API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Grass Touch API
-
-The Grass Touch API is a tongue-in-cheek personal status endpoint hosted on Railway at [is-kim-playing-steam.up.railway.app](https://is-kim-playing-steam.up.railway.app). It answers a single question: has Kim touched grass, or are they on Steam?
-
-What you get from the API:
-- A status indicator for Kim's most recent known activity (indoor / outdoor).
-- A single `GET /` root endpoint that returns the current snapshot.
-
-Operational notes: the freepublicapis.com catalogue reports CORS disabled, an average response time around 1.3s, and a low historical reliability score, so expect occasional downtime. No authentication or rate-limit policy is documented.
 
 ## Try it
 
@@ -46,27 +36,31 @@ gem install grass-touch-sdk
 luarocks install grass-touch-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { GrassTouchSDK } from 'grass-touch'
 
-const client = new GrassTouchSDK({})
+const client = new GrassTouchSDK({
+  apikey: process.env.GRASS-TOUCH_APIKEY,
+})
 
+// Load getgrasstouchstatus data
+const getgrasstouchstatus = await client.GetGrassTouchStatus().load({})
+console.log(getgrasstouchstatus.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -96,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **GetGrassTouchStatus** | The current grass-touch / Steam-playing status for Kim, exposed at the root path `GET /`. | `/` |
+| **GetGrassTouchStatus** |  | `/` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -106,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from grasstouch_sdk import GrassTouchSDK
 
-client = GrassTouchSDK({})
+client = GrassTouchSDK({
+    "apikey": os.environ.get("GRASS-TOUCH_APIKEY"),
+})
 
 
 # Load a specific getgrasstouchstatus
-getgrasstouchstatus, err = client.GetGrassTouchStatus(None).load(
-    {"id": "example_id"}, None
-)
+getgrasstouchstatus, err = client.GetGrassTouchStatus().load({"id": "example_id"})
+print(getgrasstouchstatus)
 ```
 
 ### PHP
@@ -123,13 +119,14 @@ getgrasstouchstatus, err = client.GetGrassTouchStatus(None).load(
 <?php
 require_once 'grasstouch_sdk.php';
 
-$client = new GrassTouchSDK([]);
+$client = new GrassTouchSDK([
+    "apikey" => getenv("GRASS-TOUCH_APIKEY"),
+]);
 
 
 // Load a specific getgrasstouchstatus
-[$getgrasstouchstatus, $err] = $client->GetGrassTouchStatus(null)->load(
-    ["id" => "example_id"], null
-);
+[$getgrasstouchstatus, $err] = $client->GetGrassTouchStatus()->load(["id" => "example_id"]);
+print_r($getgrasstouchstatus);
 ```
 
 ### Golang
@@ -137,8 +134,13 @@ $client = new GrassTouchSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/grass-touch-sdk/go"
 
-client := sdk.NewGrassTouchSDK(map[string]any{})
+client := sdk.NewGrassTouchSDK(map[string]any{
+    "apikey": os.Getenv("GRASS-TOUCH_APIKEY"),
+})
 
+// Load getgrasstouchstatus data
+getgrasstouchstatus, err := client.GetGrassTouchStatus(nil).Load(map[string]any{}, nil)
+fmt.Println(getgrasstouchstatus)
 ```
 
 ### Ruby
@@ -146,13 +148,14 @@ client := sdk.NewGrassTouchSDK(map[string]any{})
 ```ruby
 require_relative "GrassTouch_sdk"
 
-client = GrassTouchSDK.new({})
+client = GrassTouchSDK.new({
+  "apikey" => ENV["GRASS-TOUCH_APIKEY"],
+})
 
 
 # Load a specific getgrasstouchstatus
-getgrasstouchstatus, err = client.GetGrassTouchStatus(nil).load(
-  { "id" => "example_id" }, nil
-)
+getgrasstouchstatus, err = client.GetGrassTouchStatus().load({ "id" => "example_id" })
+puts getgrasstouchstatus
 ```
 
 ### Lua
@@ -160,13 +163,14 @@ getgrasstouchstatus, err = client.GetGrassTouchStatus(nil).load(
 ```lua
 local sdk = require("grass-touch_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("GRASS-TOUCH_APIKEY"),
+})
 
 
 -- Load a specific getgrasstouchstatus
-local getgrasstouchstatus, err = client:GetGrassTouchStatus(nil):load(
-  { id = "example_id" }, nil
-)
+local getgrasstouchstatus, err = client:GetGrassTouchStatus():load({ id = "example_id" })
+print(getgrasstouchstatus)
 ```
 
 ## Unit testing in offline mode
@@ -185,25 +189,21 @@ const result = await client.GetGrassTouchStatus().load({ id: 'test01' })
 ### Python
 
 ```python
-client = GrassTouchSDK.test(None, None)
-result, err = client.GetGrassTouchStatus(None).load(
-    {"id": "test01"}, None
-)
+client = GrassTouchSDK.test()
+result, err = client.GetGrassTouchStatus().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = GrassTouchSDK::test(null, null);
-[$result, $err] = $client->GetGrassTouchStatus(null)->load(
-    ["id" => "test01"], null
-);
+$client = GrassTouchSDK::test();
+[$result, $err] = $client->GetGrassTouchStatus()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.GetGrassTouchStatus(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -212,19 +212,15 @@ result, err := client.GetGrassTouchStatus(nil).Load(
 ### Ruby
 
 ```ruby
-client = GrassTouchSDK.test(nil, nil)
-result, err = client.GetGrassTouchStatus(nil).load(
-  { "id" => "test01" }, nil
-)
+client = GrassTouchSDK.test
+result, err = client.GetGrassTouchStatus().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:GetGrassTouchStatus(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:GetGrassTouchStatus():load({ id = "test01" })
 ```
 
 ## How it works
@@ -328,15 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Grass Touch API
-
-- Upstream: [https://is-kim-playing-steam.up.railway.app](https://is-kim-playing-steam.up.railway.app)
-- API docs: [https://freepublicapis.com/grass-touch-api](https://freepublicapis.com/grass-touch-api)
-
-- No licence is published on the API homepage or the freepublicapis.com catalogue entry.
-- Treat the service as a casual, novelty endpoint; do not rely on it for production use.
-- Attribution to the upstream service (`is-kim-playing-steam.up.railway.app`) is courteous if you redistribute the data.
 
 ---
 

@@ -113,6 +113,7 @@ function basicSetup(extra?: any) {
     'GRASS_TOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID': idmap,
     'GRASS_TOUCH_TEST_LIVE': 'FALSE',
     'GRASS_TOUCH_TEST_EXPLAIN': 'FALSE',
+    'GRASS_TOUCH_APIKEY': 'NONE',
   })
 
   idmap = env['GRASS_TOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID']
@@ -122,6 +123,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new GrassTouchSDK(merge([
       {
+        apikey: env.GRASS_TOUCH_APIKEY,
       },
       extra
     ]))

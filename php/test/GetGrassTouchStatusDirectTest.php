@@ -67,12 +67,14 @@ function get_grass_touch_status_direct_setup($mockres)
     $env = Runner::env_override([
         "GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID" => [],
         "GRASSTOUCH_TEST_LIVE" => "FALSE",
+        "GRASSTOUCH_APIKEY" => "NONE",
     ]);
 
     $live = $env["GRASSTOUCH_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["GRASSTOUCH_APIKEY"],
         ];
         $client = new GrassTouchSDK($merged_opts);
         return [
