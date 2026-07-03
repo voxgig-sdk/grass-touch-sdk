@@ -10,7 +10,7 @@ The PHP SDK for the GrassTouch API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/grass-touch-sdk
+composer require voxgig-sdk/grass-touch
 ```
 
 

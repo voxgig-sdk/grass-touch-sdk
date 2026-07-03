@@ -10,7 +10,7 @@ The TypeScript SDK for the GrassTouch API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install grass-touch
+npm install @voxgig-sdk/grass-touch
 ```
 ## Tutorial: your first API call
 

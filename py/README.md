@@ -10,7 +10,7 @@ The Python SDK for the GrassTouch API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install grass-touch-sdk
+pip install voxgig-sdk-grass-touch
 ```
 
 Or install from source:

@@ -10,13 +10,13 @@ The Ruby SDK for the GrassTouch API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install grass-touch-sdk
+gem install voxgig-sdk-grass-touch
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "grass-touch-sdk"
+gem "voxgig-sdk-grass-touch"
 ```
 
 Then run:

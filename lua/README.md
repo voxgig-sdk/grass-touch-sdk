@@ -10,7 +10,7 @@ The Lua SDK for the GrassTouch API — an entity-oriented client using Lua conve
 
 ## Install
 ```bash
-luarocks install grass-touch-sdk
+luarocks install voxgig-sdk-grass-touch
 ```
 
 If the module is not yet published, add the source directory to
