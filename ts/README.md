@@ -9,9 +9,12 @@ The TypeScript SDK for the GrassTouch API — a type-safe, entity-oriented clien
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/grass-touch
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/grass-touch-sdk/releases](https://github.com/voxgig-sdk/grass-touch-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { GrassTouchSDK } from 'grass-touch'
+import { GrassTouchSDK } from '@voxgig-sdk/grass-touch'
 
-const client = new GrassTouchSDK({
-  apikey: process.env.GRASS-TOUCH_APIKEY,
-})
+const client = new GrassTouchSDK()
 ```
 
 ### 3. Load a getgrasstouchstatus
 
 ```ts
-const result = await client.GetGrassTouchStatus().load({ id: 'example_id' })
+const result = await client.getgrasstouchstatus.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = GrassTouchSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.getgrasstouchstatus.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new GrassTouchSDK({ apikey: '...' })
+const client = new GrassTouchSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.getgrasstouchstatus
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new GrassTouchSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new GrassTouchSDK({
 Create a `.env.local` file at the project root:
 
 ```
-GRASS-TOUCH_TEST_LIVE=TRUE
-GRASS-TOUCH_APIKEY=<your-key>
+GRASS_TOUCH_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new GrassTouchSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new GrassTouchSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -268,7 +265,7 @@ API path: `/`
 
 ### GetGrassTouchStatus
 
-Create an instance: `const get_grass_touch_status = client.GetGrassTouchStatus()`
+Create an instance: `const get_grass_touch_status = client.get_grass_touch_status`
 
 #### Operations
 
@@ -287,7 +284,7 @@ Create an instance: `const get_grass_touch_status = client.GetGrassTouchStatus()
 #### Example: Load
 
 ```ts
-const get_grass_touch_status = await client.GetGrassTouchStatus().load({ id: 'get_grass_touch_status_id' })
+const get_grass_touch_status = await client.get_grass_touch_status.load({ id: 'get_grass_touch_status_id' })
 ```
 
 
@@ -348,7 +345,7 @@ grass-touch/
 Import the SDK from the package root:
 
 ```ts
-import { GrassTouchSDK } from 'grass-touch'
+import { GrassTouchSDK } from '@voxgig-sdk/grass-touch'
 ```
 
 ### Entity state
@@ -358,11 +355,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const getgrasstouchstatus = client.getgrasstouchstatus
+await getgrasstouchstatus.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// getgrasstouchstatus.data() now returns the loaded getgrasstouchstatus data
+// getgrasstouchstatus.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -84,7 +83,7 @@ same parameters as `direct()`.
 ## GetGrassTouchStatusEntity
 
 ```lua
-local get_grass_touch_status = client:GetGrassTouchStatus(nil)
+local get_grass_touch_status = client:get_grass_touch_status(nil)
 ```
 
 ### Fields
@@ -102,7 +101,7 @@ local get_grass_touch_status = client:GetGrassTouchStatus(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:GetGrassTouchStatus():load({ id = "get_grass_touch_status_id" })
+local result, err = client:get_grass_touch_status():load({ id = "get_grass_touch_status_id" })
 ```
 
 ### Common Methods

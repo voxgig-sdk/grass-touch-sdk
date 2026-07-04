@@ -79,6 +79,10 @@ end
 
 
 
+---@param reqmatch GetGrassTouchStatusLoadMatch
+---@param ctrl? table
+---@return GetGrassTouchStatus
+---@return string? err
 function GetGrassTouchStatusEntity:load(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

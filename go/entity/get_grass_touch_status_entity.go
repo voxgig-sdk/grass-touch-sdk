@@ -85,6 +85,27 @@ func (e *GetGrassTouchStatusEntity) Match(args ...any) any {
 	return out
 }
 
+// DataTyped is the statically-typed accessor for this entity's data. With no
+// argument it returns the current data as an GetGrassTouchStatus; with an argument it
+// sets the data and returns the stored value. It delegates to the untyped Data
+// (identical runtime) and converts at the typed boundary.
+func (e *GetGrassTouchStatusEntity) DataTyped(data ...GetGrassTouchStatus) GetGrassTouchStatus {
+	if len(data) > 0 {
+		return typedFrom[GetGrassTouchStatus](e.Data(asMap(data[0])))
+	}
+	return typedFrom[GetGrassTouchStatus](e.Data())
+}
+
+// MatchTyped mirrors DataTyped for the entity's match filter. The match is a
+// partial of the entity, so it round-trips through GetGrassTouchStatus (all fields
+// optional at the wire level).
+func (e *GetGrassTouchStatusEntity) MatchTyped(match ...GetGrassTouchStatus) GetGrassTouchStatus {
+	if len(match) > 0 {
+		return typedFrom[GetGrassTouchStatus](e.Match(asMap(match[0])))
+	}
+	return typedFrom[GetGrassTouchStatus](e.Match())
+}
+
 
 func (e *GetGrassTouchStatusEntity) Load(reqmatch map[string]any, ctrl map[string]any) (any, error) {
 	utility := e.utility
@@ -109,6 +130,17 @@ func (e *GetGrassTouchStatusEntity) Load(reqmatch map[string]any, ctrl map[strin
 			}
 		}
 	})
+}
+
+// LoadTyped is the statically-typed variant of Load: it takes an
+// GetGrassTouchStatusLoadMatch and returns an GetGrassTouchStatus. It delegates to the untyped
+// Load (identical runtime) and converts at the typed boundary.
+func (e *GetGrassTouchStatusEntity) LoadTyped(reqmatch GetGrassTouchStatusLoadMatch, ctrl map[string]any) (GetGrassTouchStatus, error) {
+	res, err := e.Load(asMap(reqmatch), ctrl)
+	if err != nil {
+		return GetGrassTouchStatus{}, err
+	}
+	return typedFrom[GetGrassTouchStatus](res), nil
 }
 
 

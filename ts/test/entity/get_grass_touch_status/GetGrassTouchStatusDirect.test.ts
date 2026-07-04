@@ -74,14 +74,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID': {},
     'GRASSTOUCH_TEST_LIVE': 'FALSE',
-    'GRASSTOUCH_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.GRASSTOUCH_TEST_LIVE
 
   if (live) {
     const client = new GrassTouchSDK({
-      apikey: env.GRASSTOUCH_APIKEY,
     })
 
     let idmap: any = env['GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID']

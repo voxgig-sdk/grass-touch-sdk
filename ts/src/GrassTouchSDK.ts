@@ -2,6 +2,8 @@
 
 import { GetGrassTouchStatusEntity } from './entity/GetGrassTouchStatusEntity'
 
+export type * from './GrassTouchTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class GrassTouchSDK {
 
 
 
+  _get_grass_touch_status?: GetGrassTouchStatusEntity
+
+  // Idiomatic facade: `client.get_grass_touch_status.list()` / `client.get_grass_touch_status.load({ id })`.
+  get get_grass_touch_status(): GetGrassTouchStatusEntity {
+    return (this._get_grass_touch_status ??= new GetGrassTouchStatusEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.get_grass_touch_status` instead. */
   GetGrassTouchStatus(data?: any) {
     const self = this
     return new GetGrassTouchStatusEntity(self,data)

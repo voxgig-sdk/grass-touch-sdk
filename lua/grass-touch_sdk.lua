@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:get_grass_touch_status():list() / client:get_grass_touch_status():load({ id = ... })
+function GrassTouchSDK:get_grass_touch_status(data)
+  local EntityMod = require("entity.get_grass_touch_status_entity")
+  if data == nil then
+    if self._get_grass_touch_status == nil then
+      self._get_grass_touch_status = EntityMod.new(self, nil)
+    end
+    return self._get_grass_touch_status
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:get_grass_touch_status() instead.
 function GrassTouchSDK:GetGrassTouchStatus(data)
   local EntityMod = require("entity.get_grass_touch_status_entity")
   return EntityMod.new(self, data)

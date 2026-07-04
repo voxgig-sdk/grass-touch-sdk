@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         url: "https://is-kim-playing-steam.up.railway.app"
       }

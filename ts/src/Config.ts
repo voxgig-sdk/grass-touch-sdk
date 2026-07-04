@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://is-kim-playing-steam.up.railway.app',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

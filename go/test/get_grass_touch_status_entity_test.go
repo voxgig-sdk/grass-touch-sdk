@@ -117,7 +117,6 @@ func get_grass_touch_statusBasicSetup(extra map[string]any) *entityTestSetup {
 		"GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID": idmap,
 		"GRASSTOUCH_TEST_LIVE":      "FALSE",
 		"GRASSTOUCH_TEST_EXPLAIN":   "FALSE",
-		"GRASSTOUCH_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID"])
@@ -128,7 +127,6 @@ func get_grass_touch_statusBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["GRASSTOUCH_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["GRASSTOUCH_APIKEY"],
 			},
 			extra,
 		})

@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `GrassTouchSDK.test()`.
 ## GetGrassTouchStatusEntity
 
 ```ts
-const get_grass_touch_status = client.GetGrassTouchStatus()
+const get_grass_touch_status = client.get_grass_touch_status
 ```
 
 ### Fields
@@ -128,7 +127,7 @@ const get_grass_touch_status = client.GetGrassTouchStatus()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetGrassTouchStatus().load({ id: 'get_grass_touch_status_id' })
+const result = await client.get_grass_touch_status.load({ id: 'get_grass_touch_status_id' })
 ```
 
 ### Common Methods

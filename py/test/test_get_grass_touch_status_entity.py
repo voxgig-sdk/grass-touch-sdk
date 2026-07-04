@@ -49,8 +49,7 @@ class TestGetGrassTouchStatusEntity:
         # LOAD
         get_grass_touch_status_ref01_ent = client.GetGrassTouchStatus(None)
         get_grass_touch_status_ref01_match_dt0 = {}
-        get_grass_touch_status_ref01_data_dt0_loaded, err = get_grass_touch_status_ref01_ent.load(get_grass_touch_status_ref01_match_dt0, None)
-        assert err is None
+        get_grass_touch_status_ref01_data_dt0_loaded = get_grass_touch_status_ref01_ent.load(get_grass_touch_status_ref01_match_dt0, None)
         assert get_grass_touch_status_ref01_data_dt0_loaded is not None
 
 
@@ -91,7 +90,6 @@ def _get_grass_touch_status_basic_setup(extra):
         "GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID": idmap,
         "GRASSTOUCH_TEST_LIVE": "FALSE",
         "GRASSTOUCH_TEST_EXPLAIN": "FALSE",
-        "GRASSTOUCH_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -102,7 +100,6 @@ def _get_grass_touch_status_basic_setup(extra):
     if env.get("GRASSTOUCH_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("GRASSTOUCH_APIKEY"),
             },
             extra or {},
         ])

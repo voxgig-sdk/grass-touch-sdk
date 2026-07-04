@@ -245,6 +245,9 @@ func (sdk *GrassTouchSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// GetGrassTouchStatus returns a GetGrassTouchStatus entity bound to this client.
+// Idiomatic usage: client.GetGrassTouchStatus(nil).List(nil, nil) or
+// client.GetGrassTouchStatus(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *GrassTouchSDK) GetGrassTouchStatus(data map[string]any) GrassTouchEntity {
 	return NewGetGrassTouchStatusEntityFunc(sdk, data)
 }
