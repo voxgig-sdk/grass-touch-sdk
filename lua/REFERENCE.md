@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## GetGrassTouchStatusEntity
 
 ```lua
-local get_grass_touch_status = client:get_grass_touch_status(nil)
+local get_grass_touch_status = client:GetGrassTouchStatus(nil)
 ```
 
 ### Fields
@@ -101,7 +101,7 @@ local get_grass_touch_status = client:get_grass_touch_status(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:get_grass_touch_status():load({ id = "get_grass_touch_status_id" })
+local result, err = client:GetGrassTouchStatus():load({ id = "get_grass_touch_status_id" })
 ```
 
 ### Common Methods

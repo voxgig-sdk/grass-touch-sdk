@@ -208,13 +208,7 @@ class GrassTouchSDK
   end
 
 
-  # Idiomatic facade: client.get_grass_touch_status.list / client.get_grass_touch_status.load({ "id" => ... })
-  def get_grass_touch_status
-    require_relative 'entity/get_grass_touch_status_entity'
-    @get_grass_touch_status ||= GetGrassTouchStatusEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.get_grass_touch_status instead.
+  # Canonical facade: client.GetGrassTouchStatus.list / client.GetGrassTouchStatus.load({ "id" => ... })
   def GetGrassTouchStatus(data = nil)
     require_relative 'entity/get_grass_touch_status_entity'
     GetGrassTouchStatusEntity.new(self, data)

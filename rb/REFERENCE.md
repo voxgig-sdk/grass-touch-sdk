@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## GetGrassTouchStatusEntity
 
 ```ruby
-get_grass_touch_status = client.get_grass_touch_status
+get_grass_touch_status = client.GetGrassTouchStatus
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ get_grass_touch_status = client.get_grass_touch_status
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.get_grass_touch_status.load({ "id" => "get_grass_touch_status_id" })
+result = client.GetGrassTouchStatus.load({ "id" => "get_grass_touch_status_id" })
 ```
 
 ### Common Methods

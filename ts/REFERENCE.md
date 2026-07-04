@@ -109,7 +109,7 @@ Alias for `GrassTouchSDK.test()`.
 ## GetGrassTouchStatusEntity
 
 ```ts
-const get_grass_touch_status = client.get_grass_touch_status
+const get_grass_touch_status = client.GetGrassTouchStatus()
 ```
 
 ### Fields
@@ -127,7 +127,7 @@ const get_grass_touch_status = client.get_grass_touch_status
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.get_grass_touch_status.load({ id: 'get_grass_touch_status_id' })
+const result = await client.GetGrassTouchStatus().load({ id: 'get_grass_touch_status_id' })
 ```
 
 ### Common Methods

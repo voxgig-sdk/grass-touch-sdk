@@ -26,9 +26,9 @@ import { GrassTouchSDK } from '@voxgig-sdk/grass-touch'
 
 const client = new GrassTouchSDK()
 
-// Load getgrasstouchstatus data
-const getgrasstouchstatus = await client.getgrasstouchstatus.load({})
-console.log(getgrasstouchstatus.data)
+// Load getgrasstouchstatus data (returns a GetGrassTouchStatus)
+const getgrasstouchstatus = await client.GetGrassTouchStatus().load()
+console.log(getgrasstouchstatus)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from grasstouch_sdk import GrassTouchSDK
 client = GrassTouchSDK()
 
 
-# Load a specific getgrasstouchstatus
-getgrasstouchstatus = client.getgrasstouchstatus.load({"id": "example_id"})
+# Load a specific getgrasstouchstatus (returns the record, raises on error)
+getgrasstouchstatus = client.GetGrassTouchStatus().load({"id": "example_id"})
 print(getgrasstouchstatus)
 ```
 
@@ -98,8 +98,8 @@ require_once 'grasstouch_sdk.php';
 $client = new GrassTouchSDK();
 
 
-// Load a specific getgrasstouchstatus
-$getgrasstouchstatus = $client->getgrasstouchstatus()->load(["id" => "example_id"]);
+// Load a specific getgrasstouchstatus (returns the bare record; throws on error)
+$getgrasstouchstatus = $client->GetGrassTouchStatus()->load(["id" => "example_id"]);
 print_r($getgrasstouchstatus);
 ```
 
@@ -123,8 +123,8 @@ require_relative "GrassTouch_sdk"
 client = GrassTouchSDK.new
 
 
-# Load a specific getgrasstouchstatus
-getgrasstouchstatus = client.getgrasstouchstatus.load({ "id" => "example_id" })
+# Load a specific getgrasstouchstatus (returns the bare record; raises on error)
+getgrasstouchstatus = client.GetGrassTouchStatus.load({ "id" => "example_id" })
 puts getgrasstouchstatus
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific getgrasstouchstatus
-local getgrasstouchstatus, err = client:getgrasstouchstatus():load({ id = "example_id" })
+local getgrasstouchstatus, err = client:GetGrassTouchStatus():load({ id = "example_id" })
 print(getgrasstouchstatus)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = GrassTouchSDK.test()
-const result = await client.getgrasstouchstatus.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const getgrasstouchstatus = await client.GetGrassTouchStatus().load({ id: 'test01' })
+// getgrasstouchstatus is a bare GetGrassTouchStatus populated with mock data
+console.log(getgrasstouchstatus)
 ```
 
 ### Python
 
 ```python
 client = GrassTouchSDK.test()
-result = client.getgrasstouchstatus.load({"id": "test01"})
+getgrasstouchstatus = client.GetGrassTouchStatus().load({"id": "test01"})
+print(getgrasstouchstatus)
 ```
 
 ### PHP
 
 ```php
-$client = GrassTouchSDK::test();
-$result = $client->getgrasstouchstatus()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = GrassTouchSDK::test([
+    "entity" => ["getgrasstouchstatus" => ["test01" => ["id" => "test01"]]],
+]);
+$getgrasstouchstatus = $client->GetGrassTouchStatus()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.GetGrassTouchStatus(nil).Load(
 ### Ruby
 
 ```ruby
-client = GrassTouchSDK.test
-result = client.getgrasstouchstatus.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = GrassTouchSDK.test({
+  "entity" => { "getgrasstouchstatus" => { "test01" => { "id" => "test01" } } },
+})
+getgrasstouchstatus = client.GetGrassTouchStatus.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:getgrasstouchstatus():load({ id = "test01" })
+local result, err = client:GetGrassTouchStatus():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

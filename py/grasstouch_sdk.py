@@ -220,25 +220,15 @@ class GrassTouchSDK:
         }
 
 
-    @property
-    def get_grass_touch_status(self):
-        """Idiomatic facade: client.get_grass_touch_status.list() / client.get_grass_touch_status.load({"id": ...})."""
-        from entity.get_grass_touch_status_entity import GetGrassTouchStatusEntity
-        cached = getattr(self, "_get_grass_touch_status", None)
-        if cached is None:
-            cached = GetGrassTouchStatusEntity(self, None)
-            self._get_grass_touch_status = cached
-        return cached
-
-    def GetGrassTouchStatus(self, data=None):
-        # Deprecated: use client.get_grass_touch_status instead.
+    def GetGrassTouchStatus(self, data=None) -> "GetGrassTouchStatusEntity":
+        """Entity factory: client.GetGrassTouchStatus().list({}) / client.GetGrassTouchStatus().load({"id": ...})."""
         from entity.get_grass_touch_status_entity import GetGrassTouchStatusEntity
         return GetGrassTouchStatusEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "GrassTouchSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class GrassTouchSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.get_grass_touch_status_entity import GetGrassTouchStatusEntity

@@ -233,10 +233,10 @@ class GrassTouchSDK
 
     private $_get_grass_touch_status = null;
 
-    // Idiomatic facade: $client->get_grass_touch_status()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias GetGrassTouchStatus() (PHP method
-    // names are case-insensitive).
-    public function get_grass_touch_status($data = null)
+    // Canonical facade: $client->GetGrassTouchStatus()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->get_grass_touch_status()
+    // resolves here too.
+    public function GetGrassTouchStatus($data = null)
     {
         require_once __DIR__ . '/entity/get_grass_touch_status_entity.php';
         if ($data === null) {

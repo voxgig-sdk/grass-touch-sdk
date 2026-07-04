@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## GetGrassTouchStatusEntity
 
 ```php
-$get_grass_touch_status = $client->get_grass_touch_status();
+$get_grass_touch_status = $client->GetGrassTouchStatus();
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ $get_grass_touch_status = $client->get_grass_touch_status();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->get_grass_touch_status()->load(["id" => "get_grass_touch_status_id"]);
+$result = $client->GetGrassTouchStatus()->load(["id" => "get_grass_touch_status_id"]);
 ```
 
 ### Common Methods

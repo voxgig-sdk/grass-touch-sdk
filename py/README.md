@@ -33,10 +33,12 @@ client = GrassTouchSDK()
 
 ### 3. Load a getgrasstouchstatus
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.getgrasstouchstatus.load({"id": "example_id"})
-    print(result)
+    getgrasstouchstatus = client.GetGrassTouchStatus().load({"id": "example_id"})
+    print(getgrasstouchstatus)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = GrassTouchSDK.test()
 
-result = client.getgrasstouchstatus.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+getgrasstouchstatus = client.GetGrassTouchStatus().load({"id": "test01"})
+# getgrasstouchstatus contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -220,7 +223,7 @@ API path: `/`
 
 ### GetGrassTouchStatus
 
-Create an instance: `const get_grass_touch_status = client.get_grass_touch_status`
+Create an instance: `get_grass_touch_status = client.GetGrassTouchStatus()`
 
 #### Operations
 
@@ -238,8 +241,8 @@ Create an instance: `const get_grass_touch_status = client.get_grass_touch_statu
 
 #### Example: Load
 
-```ts
-const get_grass_touch_status = await client.get_grass_touch_status.load({ id: 'get_grass_touch_status_id' })
+```python
+get_grass_touch_status = client.GetGrassTouchStatus().load({"id": "get_grass_touch_status_id"})
 ```
 
 
@@ -313,7 +316,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-getgrasstouchstatus = client.getgrasstouchstatus
+getgrasstouchstatus = client.GetGrassTouchStatus()
 getgrasstouchstatus.load({"id": "example_id"})
 
 # getgrasstouchstatus.data_get() now returns the loaded getgrasstouchstatus data

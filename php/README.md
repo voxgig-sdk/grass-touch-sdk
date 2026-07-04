@@ -33,9 +33,10 @@ $client = new GrassTouchSDK();
 
 ```php
 try {
-    $result = $client->getgrasstouchstatus()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare GetGrassTouchStatus record (throws on error).
+    $getgrasstouchstatus = $client->GetGrassTouchStatus()->load(["id" => "example_id"]);
+    print_r($getgrasstouchstatus);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = GrassTouchSDK::test();
+$client = GrassTouchSDK::test([
+    "entity" => ["getgrasstouchstatus" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->getgrasstouchstatus()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$getgrasstouchstatus = $client->GetGrassTouchStatus()->load(["id" => "test01"]);
+print_r($getgrasstouchstatus);
 ```
 
 ### Use a custom fetch function
@@ -225,7 +230,7 @@ API path: `/`
 
 ### GetGrassTouchStatus
 
-Create an instance: `const get_grass_touch_status = client.get_grass_touch_status`
+Create an instance: `$get_grass_touch_status = $client->GetGrassTouchStatus();`
 
 #### Operations
 
@@ -243,8 +248,9 @@ Create an instance: `const get_grass_touch_status = client.get_grass_touch_statu
 
 #### Example: Load
 
-```ts
-const get_grass_touch_status = await client.get_grass_touch_status.load({ id: 'get_grass_touch_status_id' })
+```php
+// load() returns the bare GetGrassTouchStatus record (throws on error).
+$get_grass_touch_status = $client->GetGrassTouchStatus()->load(["id" => "get_grass_touch_status_id"]);
 ```
 
 
@@ -319,7 +325,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$getgrasstouchstatus = $client->getgrasstouchstatus();
+$getgrasstouchstatus = $client->GetGrassTouchStatus();
 $getgrasstouchstatus->load(["id" => "example_id"]);
 
 // $getgrasstouchstatus->dataGet() now returns the loaded getgrasstouchstatus data
