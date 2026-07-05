@@ -8,7 +8,7 @@ Complete API reference for the GrassTouch Python SDK.
 ### Constructor
 
 ```python
-from grass-touch_sdk import GrassTouchSDK
+from grasstouch_sdk import GrassTouchSDK
 
 client = GrassTouchSDK(options)
 ```
@@ -87,9 +87,9 @@ get_grass_touch_status = client.GetGrassTouchStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_seen` | ``$STRING`` | Yes |  |
-| `message` | ``$STRING`` | Yes |  |
-| `online` | ``$BOOLEAN`` | Yes |  |
+| `last_seen` | `str` | Yes |  |
+| `message` | `str` | Yes |  |
+| `online` | `bool` | Yes |  |
 
 ### Operations
 
@@ -98,7 +98,7 @@ get_grass_touch_status = client.GetGrassTouchStatus()
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.GetGrassTouchStatus().load({"id": "get_grass_touch_status_id"})
+result = client.GetGrassTouchStatus().load()
 ```
 
 ### Common Methods

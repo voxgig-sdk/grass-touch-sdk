@@ -15,8 +15,7 @@ type GetGrassTouchStatus struct {
 	Online bool `json:"online"`
 }
 
-// GetGrassTouchStatusLoadMatch mirrors the get_grass_touch_status fields as an all-optional match
-// filter (Go analog of Partial<GetGrassTouchStatus>).
+// GetGrassTouchStatusLoadMatch is the typed request payload for GetGrassTouchStatus.LoadTyped.
 type GetGrassTouchStatusLoadMatch struct {
 	LastSeen *string `json:"last_seen,omitempty"`
 	Message *string `json:"message,omitempty"`

@@ -20,7 +20,7 @@ class GetGrassTouchStatus
     public bool $online;
 }
 
-/** Match filter for GetGrassTouchStatus#load (any subset of GetGrassTouchStatus fields). */
+/** Request payload for GetGrassTouchStatus#load. */
 class GetGrassTouchStatusLoadMatch
 {
     public ?string $last_seen = null;

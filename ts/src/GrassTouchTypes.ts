@@ -11,5 +11,9 @@ export interface GetGrassTouchStatus {
   online: boolean
 }
 
-export type GetGrassTouchStatusLoadMatch = Partial<GetGrassTouchStatus>
+export interface GetGrassTouchStatusLoadMatch {
+  last_seen?: string
+  message?: string
+  online?: boolean
+}
 

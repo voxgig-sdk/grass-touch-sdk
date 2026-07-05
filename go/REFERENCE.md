@@ -97,9 +97,9 @@ get_grass_touch_status := client.GetGrassTouchStatus(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_seen` | ``$STRING`` | Yes |  |
-| `message` | ``$STRING`` | Yes |  |
-| `online` | ``$BOOLEAN`` | Yes |  |
+| `last_seen` | `string` | Yes |  |
+| `message` | `string` | Yes |  |
+| `online` | `bool` | Yes |  |
 
 ### Operations
 
@@ -108,7 +108,7 @@ get_grass_touch_status := client.GetGrassTouchStatus(nil)
 Load a single entity matching the given criteria.
 
 ```go
-result, err := client.GetGrassTouchStatus(nil).Load(map[string]any{"id": "get_grass_touch_status_id"}, nil)
+result, err := client.GetGrassTouchStatus(nil).Load(nil, nil)
 ```
 
 ### Common Methods

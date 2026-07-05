@@ -12,6 +12,9 @@
 ---@field online boolean
 
 ---@class GetGrassTouchStatusLoadMatch
+---@field last_seen? string
+---@field message? string
+---@field online? boolean
 
 local M = {}
 

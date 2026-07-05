@@ -8,7 +8,7 @@ Complete API reference for the GrassTouch PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/grass-touch_sdk.php';
+require_once __DIR__ . '/grasstouch_sdk.php';
 
 $client = new GrassTouchSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = GrassTouchSDK::test();
 
 Create a new `GetGrassTouchStatusEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): GrassTouchUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,9 +92,9 @@ $get_grass_touch_status = $client->GetGrassTouchStatus();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_seen` | ``$STRING`` | Yes |  |
-| `message` | ``$STRING`` | Yes |  |
-| `online` | ``$BOOLEAN`` | Yes |  |
+| `last_seen` | `string` | Yes |  |
+| `message` | `string` | Yes |  |
+| `online` | `bool` | Yes |  |
 
 ### Operations
 
@@ -103,24 +103,24 @@ $get_grass_touch_status = $client->GetGrassTouchStatus();
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->GetGrassTouchStatus()->load(["id" => "get_grass_touch_status_id"]);
+$result = $client->GetGrassTouchStatus()->load();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -129,7 +129,7 @@ Set the entity match criteria.
 Create a new `GetGrassTouchStatusEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

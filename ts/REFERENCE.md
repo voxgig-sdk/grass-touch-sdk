@@ -116,9 +116,9 @@ const get_grass_touch_status = client.GetGrassTouchStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_seen` | ``$STRING`` | Yes |  |
-| `message` | ``$STRING`` | Yes |  |
-| `online` | ``$BOOLEAN`` | Yes |  |
+| `last_seen` | `string` | Yes |  |
+| `message` | `string` | Yes |  |
+| `online` | `boolean` | Yes |  |
 
 ### Operations
 
@@ -127,7 +127,7 @@ const get_grass_touch_status = client.GetGrassTouchStatus()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.GetGrassTouchStatus().load({ id: 'get_grass_touch_status_id' })
+const result = await client.GetGrassTouchStatus().load()
 ```
 
 ### Common Methods

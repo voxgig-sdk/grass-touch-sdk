@@ -8,7 +8,7 @@ Complete API reference for the GrassTouch Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'grass-touch_sdk'
+require_relative 'GrassTouch_sdk'
 
 client = GrassTouchSDK.new(options)
 ```
@@ -93,9 +93,9 @@ get_grass_touch_status = client.GetGrassTouchStatus
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_seen` | ``$STRING`` | Yes |  |
-| `message` | ``$STRING`` | Yes |  |
-| `online` | ``$BOOLEAN`` | Yes |  |
+| `last_seen` | `String` | Yes |  |
+| `message` | `String` | Yes |  |
+| `online` | `Boolean` | Yes |  |
 
 ### Operations
 
@@ -104,7 +104,7 @@ get_grass_touch_status = client.GetGrassTouchStatus
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.GetGrassTouchStatus.load({ "id" => "get_grass_touch_status_id" })
+result = client.GetGrassTouchStatus.load()
 ```
 
 ### Common Methods

@@ -25,7 +25,7 @@ GetGrassTouchStatus = Struct.new(
   keyword_init: true
 )
 
-# Match filter for GetGrassTouchStatus#load (any subset of GetGrassTouchStatus fields).
+# Request payload for GetGrassTouchStatus#load.
 #
 # @!attribute [rw] last_seen
 #   @return [String, nil]

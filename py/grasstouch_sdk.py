@@ -221,7 +221,7 @@ class GrassTouchSDK:
 
 
     def GetGrassTouchStatus(self, data=None) -> "GetGrassTouchStatusEntity":
-        """Entity factory: client.GetGrassTouchStatus().list({}) / client.GetGrassTouchStatus().load({"id": ...})."""
+        """Entity factory: client.GetGrassTouchStatus().list() / client.GetGrassTouchStatus().load({"id": ...})."""
         from entity.get_grass_touch_status_entity import GetGrassTouchStatusEntity
         return GetGrassTouchStatusEntity(self, data)
 
