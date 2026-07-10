@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## GetGrassTouchStatusEntity
 
 ```go
-get_grass_touch_status := client.GetGrassTouchStatus(nil)
+getGrassTouchStatus := client.GetGrassTouchStatus(nil)
+fmt.Println(getGrassTouchStatus.GetName()) // "get_grass_touch_status"
 ```
 
 ### Fields
@@ -109,6 +110,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.GetGrassTouchStatus(nil).Load(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

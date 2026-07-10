@@ -15,9 +15,9 @@ main: {
           url: "https://is-kim-playing-steam.up.railway.app"
         }
       ]
+      summary: "This API provides information about whether Kim has touched grass or not."
       title: "Grass Touch API"
       version: "1.0.0"
+      website: "https://is-kim-playing-steam.up.railway.app"
     }
   }
-}
-
