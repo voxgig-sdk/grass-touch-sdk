@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- GrassTouch SDK configuration
 
 local function make_config()
   return {

@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- GrassTouch SDK exists test
 
 local sdk = require("grass-touch_sdk")
 
