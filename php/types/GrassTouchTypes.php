@@ -15,7 +15,7 @@ declare(strict_types=1);
 /** GetGrassTouchStatus entity data model. */
 class GetGrassTouchStatus
 {
-    public string $last_seen;
+    public string $lastSeen;
     public string $message;
     public bool $online;
 }
@@ -23,7 +23,7 @@ class GetGrassTouchStatus
 /** Request payload for GetGrassTouchStatus#load. */
 class GetGrassTouchStatusLoadMatch
 {
-    public ?string $last_seen = null;
+    public ?string $lastSeen = null;
     public ?string $message = null;
     public ?bool $online = null;
 }

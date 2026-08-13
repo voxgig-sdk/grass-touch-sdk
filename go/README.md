@@ -258,7 +258,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"last_seen"` |  |
+| `"lastSeen"` |  |
 | `"message"` |  |
 | `"online"` |  |
 
@@ -285,7 +285,7 @@ Create an instance: `getGrassTouchStatus := client.GetGrassTouchStatus(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_seen` | `string` |  |
+| `lastSeen` | `string` |  |
 | `message` | `string` |  |
 | `online` | `bool` |  |
 

@@ -43,8 +43,8 @@ class GrassTouchTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('GRASSTOUCH_TEST_LIVE');
-        $override = self::getenv('GRASSTOUCH_TEST_OVERRIDE');
+        $live = self::getenv('GRASS_TOUCH_TEST_LIVE');
+        $override = self::getenv('GRASS_TOUCH_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class GrassTouchTestRunner
             }
         }
 
-        $explain = self::getenv('GRASSTOUCH_TEST_EXPLAIN');
+        $explain = self::getenv('GRASS_TOUCH_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['GRASSTOUCH_TEST_EXPLAIN'] = $explain;
+            $m['GRASS_TOUCH_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

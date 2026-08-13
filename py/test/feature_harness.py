@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import GrassTouchControl
-from core.error import GrassTouchError
-from core.result import GrassTouchResult
-from core.spec import GrassTouchSpec
+from grasstouch_sdk.config import make_config
+from grasstouch_sdk.features import _make_feature
+from grasstouch_sdk.core.control import GrassTouchControl
+from grasstouch_sdk.core.error import GrassTouchError
+from grasstouch_sdk.core.result import GrassTouchResult
+from grasstouch_sdk.core.spec import GrassTouchSpec
 
 
 # True when this SDK was generated with the named feature.

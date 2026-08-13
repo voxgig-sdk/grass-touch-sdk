@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = GrassTouchSDK.test()
 
 const getgrasstouchstatus = await client.GetGrassTouchStatus().load()
-// getgrasstouchstatus is a bare entity populated with mock response data
+// getgrasstouchstatus is the entity, populated with mock response data
+// — call getgrasstouchstatus.data() for the record itself
 console.log(getgrasstouchstatus)
 ```
 
@@ -284,7 +285,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `last_seen` |  |
+| `lastSeen` |  |
 | `message` |  |
 | `online` |  |
 
@@ -311,7 +312,7 @@ Create an instance: `const get_grass_touch_status = client.GetGrassTouchStatus()
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_seen` | `string` |  |
+| `lastSeen` | `string` |  |
 | `message` | `string` |  |
 | `online` | `boolean` |  |
 

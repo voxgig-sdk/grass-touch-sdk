@@ -6,13 +6,13 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface GetGrassTouchStatus {
-  last_seen: string
+  lastSeen: string
   message: string
   online: boolean
 }
 
 export interface GetGrassTouchStatusLoadMatch {
-  last_seen?: string
+  lastSeen?: string
   message?: string
   online?: boolean
 }

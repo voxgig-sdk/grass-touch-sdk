@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# GrassTouch SDK exists test
 
 import pytest
 from grasstouch_sdk import GrassTouchSDK

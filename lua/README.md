@@ -225,7 +225,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `last_seen` |  |
+| `lastSeen` |  |
 | `message` |  |
 | `online` |  |
 
@@ -252,7 +252,7 @@ Create an instance: `local get_grass_touch_status = client:GetGrassTouchStatus(n
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_seen` | `string` |  |
+| `lastSeen` | `string` |  |
 | `message` | `string` |  |
 | `online` | `boolean` |  |
 

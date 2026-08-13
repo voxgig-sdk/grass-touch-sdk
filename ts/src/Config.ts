@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'GrassTouch',
   }
 
 
@@ -56,7 +56,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "last_seen",
+          "name": "lastSeen",
           "req": true,
           "type": "`$STRING`",
           "index$": 0
@@ -85,6 +85,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/",
               "parts": [],

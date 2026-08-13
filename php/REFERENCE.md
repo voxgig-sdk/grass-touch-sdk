@@ -92,7 +92,7 @@ $get_grass_touch_status = $client->GetGrassTouchStatus();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_seen` | `string` | Yes |  |
+| `lastSeen` | `string` | Yes |  |
 | `message` | `string` | Yes |  |
 | `online` | `bool` | Yes |  |
 

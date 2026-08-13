@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = GrassTouchSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = GrassTouchSDK.test({
+  entity: {
+    get_grass_touch_status: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const getgrasstouchstatus = await client.GetGrassTouchStatus().load()
-// getgrasstouchstatus is a bare GetGrassTouchStatus populated with mock data
+// getgrasstouchstatus is the GetGrassTouchStatus entity, populated with mock data
+// — call getgrasstouchstatus.data() for the record itself
 console.log(getgrasstouchstatus)
 ```
 
@@ -182,7 +191,7 @@ require_once 'grasstouch_sdk.php';
 $client = new GrassTouchSDK();
 
 
-// Load a specific getgrasstouchstatus (returns the bare record; throws on error)
+// Load a specific getgrasstouchstatus (returns the ENTITY; call data_get() for the record; throws on error)
 $getgrasstouchstatus = $client->GetGrassTouchStatus()->load();
 print_r($getgrasstouchstatus);
 ```
@@ -210,7 +219,7 @@ require_relative "GrassTouch_sdk"
 client = GrassTouchSDK.new
 
 
-# Load a specific getgrasstouchstatus (returns the bare record; raises on error)
+# Load a specific getgrasstouchstatus (returns the ENTITY; call data_get for the record)
 getgrasstouchstatus = client.GetGrassTouchStatus.load()
 puts getgrasstouchstatus
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://is-kim-playing-steam.up.railway.app](https://is-kim-playing-steam.up.railway.app)
 

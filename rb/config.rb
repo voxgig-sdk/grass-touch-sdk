@@ -27,7 +27,7 @@ module GrassTouchConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "last_seen",
+              "name" => "lastSeen",
               "req" => true,
               "type" => "`$STRING`",
               "index$" => 0,
@@ -56,6 +56,7 @@ module GrassTouchConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
                   "parts" => [],

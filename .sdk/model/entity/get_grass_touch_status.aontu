@@ -6,7 +6,7 @@ main: kit: entity: get_grass_touch_status: {
 
   fields: [
     {
-      name: "last_seen"
+      name: "lastSeen"
       req: true
       type: "`$STRING`"
     }

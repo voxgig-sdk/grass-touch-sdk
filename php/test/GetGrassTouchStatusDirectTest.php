@@ -65,11 +65,11 @@ function get_grass_touch_status_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID" => [],
-        "GRASSTOUCH_TEST_LIVE" => "FALSE",
+        "GRASS_TOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID" => [],
+        "GRASS_TOUCH_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["GRASSTOUCH_TEST_LIVE"] === "TRUE";
+    $live = $env["GRASS_TOUCH_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

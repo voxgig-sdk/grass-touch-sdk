@@ -10,7 +10,7 @@
 
 # GetGrassTouchStatus entity data model.
 #
-# @!attribute [rw] last_seen
+# @!attribute [rw] lastSeen
 #   @return [String]
 #
 # @!attribute [rw] message
@@ -19,7 +19,7 @@
 # @!attribute [rw] online
 #   @return [Boolean]
 GetGrassTouchStatus = Struct.new(
-  :last_seen,
+  :lastSeen,
   :message,
   :online,
   keyword_init: true
@@ -27,7 +27,7 @@ GetGrassTouchStatus = Struct.new(
 
 # Request payload for GetGrassTouchStatus#load.
 #
-# @!attribute [rw] last_seen
+# @!attribute [rw] lastSeen
 #   @return [String, nil]
 #
 # @!attribute [rw] message
@@ -36,7 +36,7 @@ GetGrassTouchStatus = Struct.new(
 # @!attribute [rw] online
 #   @return [Boolean, nil]
 GetGrassTouchStatusLoadMatch = Struct.new(
-  :last_seen,
+  :lastSeen,
   :message,
   :online,
   keyword_init: true

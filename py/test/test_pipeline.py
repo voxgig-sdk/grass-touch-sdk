@@ -16,11 +16,11 @@
 import pytest
 
 from grasstouch_sdk import GrassTouchSDK
-from core.error import GrassTouchError
-from core.result import GrassTouchResult
-from core.response import GrassTouchResponse
-from core.spec import GrassTouchSpec
-from feature.base_feature import GrassTouchBaseFeature
+from grasstouch_sdk.core.error import GrassTouchError
+from grasstouch_sdk.core.result import GrassTouchResult
+from grasstouch_sdk.core.response import GrassTouchResponse
+from grasstouch_sdk.core.spec import GrassTouchSpec
+from grasstouch_sdk.feature.base_feature import GrassTouchBaseFeature
 
 
 def _client():

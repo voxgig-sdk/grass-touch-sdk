@@ -26,7 +26,7 @@ local function make_config()
         ["fields"] = {
           {
             ["active"] = true,
-            ["name"] = "last_seen",
+            ["name"] = "lastSeen",
             ["req"] = true,
             ["type"] = "`$STRING`",
             ["index$"] = 0,
@@ -55,6 +55,7 @@ local function make_config()
               {
                 ["active"] = true,
                 ["args"] = {},
+                ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/",
                 ["parts"] = {},

@@ -7,12 +7,12 @@
 -- edit by hand.
 
 ---@class GetGrassTouchStatus
----@field last_seen string
+---@field lastSeen string
 ---@field message string
 ---@field online boolean
 
 ---@class GetGrassTouchStatusLoadMatch
----@field last_seen? string
+---@field lastSeen? string
 ---@field message? string
 ---@field online? boolean
 

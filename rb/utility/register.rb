@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ GrassTouchUtility.registrar = ->(u) {
   u.prepare_params = GrassTouchUtilities::PrepareParams
   u.prepare_path = GrassTouchUtilities::PreparePath
   u.prepare_query = GrassTouchUtilities::PrepareQuery
+  u.graphql_body = GrassTouchUtilities::GraphqlBody
+  u.graphql_errors = GrassTouchUtilities::GraphqlErrors
   u.result_basic = GrassTouchUtilities::ResultBasic
   u.result_body = GrassTouchUtilities::ResultBody
   u.result_headers = GrassTouchUtilities::ResultHeaders

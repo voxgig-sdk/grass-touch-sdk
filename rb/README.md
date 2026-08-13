@@ -34,7 +34,7 @@ client = GrassTouchSDK.new
 
 ```ruby
 begin
-  # load returns the bare GetGrassTouchStatus record (raises on error).
+  # load returns the ENTITY — call data_get for the GetGrassTouchStatus record (raises on error).
   getgrasstouchstatus = client.GetGrassTouchStatus.load()
   puts getgrasstouchstatus
 rescue => err
@@ -117,7 +117,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = GrassTouchSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 getgrasstouchstatus = client.GetGrassTouchStatus.load()
 puts getgrasstouchstatus
 ```
@@ -234,7 +235,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `last_seen` |  |
+| `lastSeen` |  |
 | `message` |  |
 | `online` |  |
 
@@ -261,14 +262,14 @@ Create an instance: `get_grass_touch_status = client.GetGrassTouchStatus`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_seen` | `String` |  |
+| `lastSeen` | `String` |  |
 | `message` | `String` |  |
 | `online` | `Boolean` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare GetGrassTouchStatus record (raises on error).
+# load returns the ENTITY — call data_get for the GetGrassTouchStatus record (raises on error).
 get_grass_touch_status = client.GetGrassTouchStatus.load()
 ```
 

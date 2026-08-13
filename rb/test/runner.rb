@@ -23,8 +23,8 @@ module GrassTouchTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("GRASSTOUCH_TEST_LIVE")
-    override = getenv("GRASSTOUCH_TEST_OVERRIDE")
+    live = getenv("GRASS_TOUCH_TEST_LIVE")
+    override = getenv("GRASS_TOUCH_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module GrassTouchTestRunner
       end
     end
 
-    explain = getenv("GRASSTOUCH_TEST_EXPLAIN")
-    m["GRASSTOUCH_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("GRASS_TOUCH_TEST_EXPLAIN")
+    m["GRASS_TOUCH_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

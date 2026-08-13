@@ -35,7 +35,7 @@ $client = new GrassTouchSDK();
 
 ```php
 try {
-    // load() returns the bare GetGrassTouchStatus record (throws on error).
+    // load() returns the ENTITY — call data_get() for the GetGrassTouchStatus record (throws on error).
     $getgrasstouchstatus = $client->GetGrassTouchStatus()->load();
     print_r($getgrasstouchstatus);
 } catch (\Throwable $err) {
@@ -123,7 +123,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = GrassTouchSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $getgrasstouchstatus = $client->GetGrassTouchStatus()->load();
 print_r($getgrasstouchstatus);
 ```
@@ -222,7 +223,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -244,7 +245,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `last_seen` |  |
+| `lastSeen` |  |
 | `message` |  |
 | `online` |  |
 
@@ -271,14 +272,14 @@ Create an instance: `$get_grass_touch_status = $client->GetGrassTouchStatus();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `last_seen` | `string` |  |
+| `lastSeen` | `string` |  |
 | `message` | `string` |  |
 | `online` | `bool` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare GetGrassTouchStatus record (throws on error).
+// load() returns the ENTITY — call data_get() for the GetGrassTouchStatus record (throws on error).
 $get_grass_touch_status = $client->GetGrassTouchStatus()->load();
 ```
 

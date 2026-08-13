@@ -60,11 +60,11 @@ function get_grass_touch_status_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["GRASSTOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID"] = {},
-    ["GRASSTOUCH_TEST_LIVE"] = "FALSE",
+    ["GRASS_TOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID"] = {},
+    ["GRASS_TOUCH_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["GRASSTOUCH_TEST_LIVE"] == "TRUE"
+  local live = env["GRASS_TOUCH_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

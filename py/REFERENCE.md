@@ -87,7 +87,7 @@ get_grass_touch_status = client.GetGrassTouchStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `last_seen` | `str` | Yes |  |
+| `lastSeen` | `str` | Yes |  |
 | `message` | `str` | Yes |  |
 | `online` | `bool` | Yes |  |
 
