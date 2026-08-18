@@ -23,6 +23,7 @@ build = {
   modules = {
     ["grass-touch_sdk"] = "grass-touch_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

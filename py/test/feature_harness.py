@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from grasstouch_sdk.config import make_config
+from grasstouch_sdk.config import shared_config
 from grasstouch_sdk.features import _make_feature
 from grasstouch_sdk.core.control import GrassTouchControl
 from grasstouch_sdk.core.error import GrassTouchError
@@ -24,7 +24,7 @@ from grasstouch_sdk.core.spec import GrassTouchSpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

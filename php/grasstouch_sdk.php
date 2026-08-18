@@ -40,7 +40,7 @@ class GrassTouchSDK
         $utility = new GrassTouchUtility();
         $this->_utility = $utility;
 
-        $config = GrassTouchConfig::make_config();
+        $config = GrassTouchConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

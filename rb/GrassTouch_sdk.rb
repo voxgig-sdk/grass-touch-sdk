@@ -28,7 +28,7 @@ class GrassTouchSDK
     utility = GrassTouchUtility.new
     @_utility = utility
 
-    config = GrassTouchConfig.make_config
+    config = GrassTouchConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
