@@ -98,9 +98,9 @@ fmt.Println(getGrassTouchStatus.GetName()) // "get_grass_touch_status"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `lastSeen` | `string` | Yes |  |
-| `message` | `string` | Yes |  |
-| `online` | `bool` | Yes |  |
+| `lastSeen` | `string` | Yes | Timestamp of the last known status update in ISO 8601 format |
+| `message` | `string` | Yes | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | `bool` | Yes | Indicates whether Kim is currently online or has touched grass (offline) |
 
 ### Operations
 

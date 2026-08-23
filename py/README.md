@@ -241,9 +241,9 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `lastSeen` |  |
-| `message` |  |
-| `online` |  |
+| `lastSeen` | Timestamp of the last known status update in ISO 8601 format |
+| `message` | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | Indicates whether Kim is currently online or has touched grass (offline) |
 
 Operations: Load.
 
@@ -268,9 +268,9 @@ Create an instance: `get_grass_touch_status = client.GetGrassTouchStatus()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `lastSeen` | `str` |  |
-| `message` | `str` |  |
-| `online` | `bool` |  |
+| `lastSeen` | `str` | Timestamp of the last known status update in ISO 8601 format |
+| `message` | `str` | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | `bool` | Indicates whether Kim is currently online or has touched grass (offline) |
 
 #### Example: Load
 

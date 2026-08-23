@@ -116,9 +116,9 @@ const get_grass_touch_status = client.GetGrassTouchStatus()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `lastSeen` | `string` | Yes |  |
-| `message` | `string` | Yes |  |
-| `online` | `boolean` | Yes |  |
+| `lastSeen` | `string` | Yes | Timestamp of the last known status update in ISO 8601 format |
+| `message` | `string` | Yes | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | `boolean` | Yes | Indicates whether Kim is currently online or has touched grass (offline) |
 
 ### Operations
 

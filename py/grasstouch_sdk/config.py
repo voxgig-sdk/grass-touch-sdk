@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "GrassTouch",
+            "slug": "grass-touch",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,16 +54,19 @@ def make_config():
           {
             "name": "lastSeen",
             "req": True,
+            "short": "Timestamp of the last known status update in ISO 8601 format",
             "type": "`$STRING`",
           },
           {
             "name": "message",
             "req": True,
+            "short": "A message providing context or commentary about Kim's current outdoor activity status",
             "type": "`$STRING`",
           },
           {
             "name": "online",
             "req": True,
+            "short": "Indicates whether Kim is currently online or has touched grass (offline)",
             "type": "`$BOOLEAN`",
           },
         ],

@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'GrassTouch',
+        slug: "grass-touch",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -57,16 +68,19 @@ class Config {
         {
           "name": "lastSeen",
           "req": true,
+          "short": "Timestamp of the last known status update in ISO 8601 format",
           "type": "`$STRING`"
         },
         {
           "name": "message",
           "req": true,
+          "short": "A message providing context or commentary about Kim's current outdoor activity status",
           "type": "`$STRING`"
         },
         {
           "name": "online",
           "req": true,
+          "short": "Indicates whether Kim is currently online or has touched grass (offline)",
           "type": "`$BOOLEAN`"
         }
       ],

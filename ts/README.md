@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,9 +285,9 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `lastSeen` |  |
-| `message` |  |
-| `online` |  |
+| `lastSeen` | Timestamp of the last known status update in ISO 8601 format |
+| `message` | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | Indicates whether Kim is currently online or has touched grass (offline) |
 
 Operations: load.
 
@@ -312,9 +312,9 @@ Create an instance: `const get_grass_touch_status = client.GetGrassTouchStatus()
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `lastSeen` | `string` |  |
-| `message` | `string` |  |
-| `online` | `boolean` |  |
+| `lastSeen` | `string` | Timestamp of the last known status update in ISO 8601 format |
+| `message` | `string` | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | `boolean` | Indicates whether Kim is currently online or has touched grass (offline) |
 
 #### Example: Load
 

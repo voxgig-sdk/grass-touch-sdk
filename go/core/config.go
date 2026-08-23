@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "GrassTouch",
+			"slug": "grass-touch",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,16 +37,19 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "lastSeen",
 						"req": true,
+						"short": "Timestamp of the last known status update in ISO 8601 format",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "message",
 						"req": true,
+						"short": "A message providing context or commentary about Kim's current outdoor activity status",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "online",
 						"req": true,
+						"short": "Indicates whether Kim is currently online or has touched grass (offline)",
 						"type": "`$BOOLEAN`",
 					},
 				},

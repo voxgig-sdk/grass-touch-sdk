@@ -235,9 +235,9 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `lastSeen` |  |
-| `message` |  |
-| `online` |  |
+| `lastSeen` | Timestamp of the last known status update in ISO 8601 format |
+| `message` | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | Indicates whether Kim is currently online or has touched grass (offline) |
 
 Operations: Load.
 
@@ -262,9 +262,9 @@ Create an instance: `get_grass_touch_status = client.GetGrassTouchStatus`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `lastSeen` | `String` |  |
-| `message` | `String` |  |
-| `online` | `Boolean` |  |
+| `lastSeen` | `String` | Timestamp of the last known status update in ISO 8601 format |
+| `message` | `String` | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | `Boolean` | Indicates whether Kim is currently online or has touched grass (offline) |
 
 #### Example: Load
 

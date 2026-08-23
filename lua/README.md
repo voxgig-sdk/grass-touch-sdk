@@ -225,9 +225,9 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `lastSeen` |  |
-| `message` |  |
-| `online` |  |
+| `lastSeen` | Timestamp of the last known status update in ISO 8601 format |
+| `message` | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | Indicates whether Kim is currently online or has touched grass (offline) |
 
 Operations: Load.
 
@@ -252,9 +252,9 @@ Create an instance: `local get_grass_touch_status = client:GetGrassTouchStatus(n
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `lastSeen` | `string` |  |
-| `message` | `string` |  |
-| `online` | `boolean` |  |
+| `lastSeen` | `string` | Timestamp of the last known status update in ISO 8601 format |
+| `message` | `string` | A message providing context or commentary about Kim's current outdoor activity status |
+| `online` | `boolean` | Indicates whether Kim is currently online or has touched grass (offline) |
 
 #### Example: Load
 
