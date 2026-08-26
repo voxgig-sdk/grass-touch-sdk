@@ -28,6 +28,7 @@ module GrassTouchConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
