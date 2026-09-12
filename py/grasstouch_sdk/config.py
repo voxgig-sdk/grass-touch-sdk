@@ -1,6 +1,14 @@
 # GrassTouch SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -53,6 +61,7 @@ def make_config():
       "get_grass_touch_status": {
         "fields": [
           {
+            "format": "date-time",
             "name": "lastSeen",
             "req": True,
             "short": "Timestamp of the last known status update in ISO 8601 format",
@@ -82,12 +91,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/",
-                "parts": [],
+                "segments": [],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
+                "parts": [],
               },
             ],
           },

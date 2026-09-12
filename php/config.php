@@ -58,6 +58,7 @@ class GrassTouchConfig
         'get_grass_touch_status' => [
           'fields' => [
             [
+              'format' => 'date-time',
               'name' => 'lastSeen',
               'req' => true,
               'short' => 'Timestamp of the last known status update in ISO 8601 format',
@@ -87,12 +88,13 @@ class GrassTouchConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/',
-                  'parts' => [],
+                  'segments' => [],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [],
                 ],
               ],
             ],
