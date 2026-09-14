@@ -105,7 +105,7 @@ local result, err = client:GetGrassTouchStatus():load()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/grass-touch` | publish pending — [install from git tag](https://github.com/voxgig-sdk/grass-touch-sdk/releases) |
+| TypeScript | `@voxgig-sdk/grass-touch-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/grass-touch-sdk/releases) |
 | Python | `voxgig-sdk-grass-touch` | publish pending — [install from git tag](https://github.com/voxgig-sdk/grass-touch-sdk/releases) |
 | PHP | `voxgig-sdk/grass-touch` | publish pending — [install from git tag](https://github.com/voxgig-sdk/grass-touch-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/grass-touch-sdk/go` | `go get github.com/voxgig-sdk/grass-touch-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:GetGrassTouchStatus():load()
 ### TypeScript
 
 ```ts
-import { GrassTouchSDK } from '@voxgig-sdk/grass-touch'
+import { GrassTouchSDK } from '@voxgig-sdk/grass-touch-sdk'
 
 const client = new GrassTouchSDK()
 

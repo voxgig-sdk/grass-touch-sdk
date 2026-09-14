@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { GrassTouchSDK } from '@voxgig-sdk/grass-touch'
+import { GrassTouchSDK } from '@voxgig-sdk/grass-touch-sdk'
 
 const client = new GrassTouchSDK()
 ```
@@ -405,7 +405,7 @@ grass-touch/
 Import the SDK from the package root:
 
 ```ts
-import { GrassTouchSDK } from '@voxgig-sdk/grass-touch'
+import { GrassTouchSDK } from '@voxgig-sdk/grass-touch-sdk'
 ```
 
 ### Entity state
