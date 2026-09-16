@@ -5,6 +5,8 @@ import * as Fs from 'node:fs'
 
 import { test, describe, afterEach } from 'node:test'
 import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
 
 
 import { GrassTouchSDK, BaseFeature, stdutil } from '../../..'
@@ -47,16 +49,13 @@ describe('GetGrassTouchStatusEntity', async () => {
 
     const live = 'TRUE' === process.env.GRASS_TOUCH_TEST_LIVE
     for (const op of ['load']) {
-      if (maybeSkipControl(t, 'entityOp', 'get_grass_touch_status.' + op, live)) return
+      if (!live && maybeSkipControl(t, 'entityOp', 'get_grass_touch_status.' + op, live)) return
     }
 
+    
     const setup = basicSetup()
-    // The basic flow consumes synthetic IDs and field values from the
-    // fixture (entity TestData.json). Those don't exist on the live API.
-    // Skip live runs unless the user provided a real ENTID env override.
-    if (setup.syntheticOnly) {
-      t.skip('live entity test uses synthetic IDs from fixture — set GRASS_TOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID JSON to run live')
-      return
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":[{"active":true,"format":"date-time","name":"lastSeen","req":true,"short":"Timestamp of the last known status update in ISO 8601 format","type":"`$STRING`","index$":0},{"active":true,"name":"message","req":true,"short":"A message providing context or commentary about Kim's current outdoor activity status","type":"`$STRING`","index$":1},{"active":true,"name":"online","req":true,"short":"Indicates whether Kim is currently online or has touched grass (offline)","type":"`$BOOLEAN`","index$":2}],"name":"get_grass_touch_status","op":{"load":{"input":"data","name":"load","points":[{"active":true,"args":{},"contract":{"id":"GET /","json":"{\"operationId\":\"getGrassTouchStatus\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"lastSeen\":\"2026-02-15T22:54:07.980Z\",\"message\":\"Even dictators need a break sometimes\",\"online\":true},\"schema\":{\"properties\":{\"lastSeen\":{\"description\":\"Timestamp of the last known status update in ISO 8601 format\",\"format\":\"date-time\",\"type\":\"string\"},\"message\":{\"description\":\"A message providing context or commentary about Kim's current outdoor activity status\",\"type\":\"string\"},\"online\":{\"description\":\"Indicates whether Kim is currently online or has touched grass (offline)\",\"type\":\"boolean\"}},\"required\":[\"online\",\"lastSeen\",\"message\"],\"type\":\"object\"}}},\"description\":\"Successful response with grass touch status information\"}},\"securitySource\":\"unspecified\"}","source":"openapi3","version":1},"kind":"http","method":"GET","orig":"/","segments":[],"select":{},"transform":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"get_grass_touch_status","name__orig":"get_grass_touch_status","Name":"GetGrassTouchStatus","name_":"get_grass_touch_status","name-":"get-grass-touch-status","NAME":"GET_GRASS_TOUCH_STATUS","index$":0}, {"active":true,"entity":"get_grass_touch_status","key$":"BasicGetGrassTouchStatusFlow","kind":"basic","name":"BasicGetGrassTouchStatusFlow","param":{},"step":[{"active":true,"data":{},"input":{"ref":"get_grass_touch_status_ref01","srcdatavar":"get_grass_touch_status_ref01_data","suffix":"_dt0"},"match":{},"op":"load","spec":[],"valid":[{"apply":"TextFieldMark","def":{"mark":"Mark01-get_grass_touch_status_ref01"}}],"index$":0}]}, 'GetGrassTouchStatus')
     }
     const client = setup.client
     const struct = setup.struct
@@ -109,13 +108,6 @@ function basicSetup(extra?: any) {
       }]
     })
 
-  // Detect whether the user provided a real ENTID JSON via env var. The
-  // basic flow consumes synthetic IDs from the fixture file; without an
-  // override those synthetic IDs reach the live API and 4xx. Surface this
-  // to the test so it can skip rather than fail.
-  const idmapEnvVal = process.env['GRASS_TOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID']
-  const idmapOverridden = null != idmapEnvVal && idmapEnvVal.trim().startsWith('{')
-
   const env = envOverride({
     'GRASS_TOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID': idmap,
     'GRASS_TOUCH_TEST_LIVE': 'FALSE',
@@ -126,7 +118,13 @@ function basicSetup(extra?: any) {
 
   const live = 'TRUE' === env.GRASS_TOUCH_TEST_LIVE
 
+  const transport = createLiveTransport()
   if (live) {
+    const rawIds = process.env['GRASS_TOUCH_TEST_GET_GRASS_TOUCH_STATUS_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
     client = new GrassTouchSDK(merge([
       // FIRST, so the generated fields below win: sdk-test-control.json's
       // test.client.options adds to the live client, it does not redirect it.
@@ -138,7 +136,8 @@ function basicSetup(extra?: any) {
       // argument at all - so a bare 'extra' silently discarded the apikey
       // and server values above and handed the SDK undefined. Harmless
       // while there was nothing in that object; not harmless now.
-      extra || {}
+      extra || {},
+      { system: { fetch: transport.fetch } }
     ]))
   }
 
@@ -151,7 +150,7 @@ function basicSetup(extra?: any) {
     data: entityData,
     explain: 'TRUE' === env.GRASS_TOUCH_TEST_EXPLAIN,
     live,
-    syntheticOnly: live && !idmapOverridden,
+    transport,
     now: Date.now(),
   }
 

@@ -32,6 +32,12 @@ main: kit: entity: get_grass_touch_status: {
       name: "load"
       points: [
         {
+          contract: {
+            id: "GET /"
+            json: "{\"operationId\":\"getGrassTouchStatus\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"lastSeen\":\"2026-02-15T22:54:07.980Z\",\"message\":\"Even dictators need a break sometimes\",\"online\":true},\"schema\":{\"properties\":{\"lastSeen\":{\"description\":\"Timestamp of the last known status update in ISO 8601 format\",\"format\":\"date-time\",\"type\":\"string\"},\"message\":{\"description\":\"A message providing context or commentary about Kim's current outdoor activity status\",\"type\":\"string\"},\"online\":{\"description\":\"Indicates whether Kim is currently online or has touched grass (offline)\",\"type\":\"boolean\"}},\"required\":[\"online\",\"lastSeen\",\"message\"],\"type\":\"object\"}}},\"description\":\"Successful response with grass touch status information\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/"
           transform: {

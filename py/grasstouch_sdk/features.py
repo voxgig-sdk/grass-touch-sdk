@@ -1,12 +1,18 @@
 # GrassTouch SDK feature factory
 
 from grasstouch_sdk.feature.base_feature import GrassTouchBaseFeature
+from grasstouch_sdk.feature.ratelimit_feature import GrassTouchRatelimitFeature
+from grasstouch_sdk.feature.retry_feature import GrassTouchRetryFeature
 from grasstouch_sdk.feature.test_feature import GrassTouchTestFeature
+from grasstouch_sdk.feature.timeout_feature import GrassTouchTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: GrassTouchBaseFeature(),
+    "ratelimit": lambda: GrassTouchRatelimitFeature(),
+    "retry": lambda: GrassTouchRetryFeature(),
     "test": lambda: GrassTouchTestFeature(),
+    "timeout": lambda: GrassTouchTimeoutFeature(),
 }
 
 
