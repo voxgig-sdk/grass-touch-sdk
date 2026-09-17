@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      get_grass_touch_status: {
-      },
-
+        get_grass_touch_status: {
+        },
+  
     }
   }
 
