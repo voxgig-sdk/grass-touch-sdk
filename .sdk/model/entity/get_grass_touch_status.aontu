@@ -1,0 +1,56 @@
+# Entity: get_grass_touch_status
+
+main: kit: entity: get_grass_touch_status: {
+
+  alias: field: {}
+
+  fields: {
+    lastSeen: {
+      fo: "date-time"
+      h: "Last Seen"
+      n: "lastSeen"
+      r: true
+      sh: "Timestamp of the last known status update in ISO 8601 format"
+      t: "`$STRING`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      sh: "A message providing context or commentary about Kim's current outdoor activity status"
+      t: "`$STRING`"
+    }
+    online: {
+      h: "Online"
+      n: "online"
+      r: true
+      sh: "Indicates whether Kim is currently online or has touched grass (offline)"
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "get_grass_touch_status"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/"
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

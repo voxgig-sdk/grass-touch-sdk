@@ -90,23 +90,26 @@ func MakeConfig() map[string]any {
 			"get_grass_touch_status": map[string]any{
 				"fields": []any{
 					map[string]any{
-						"format": "date-time",
 						"name": "lastSeen",
+						"title": "Last Seen",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Timestamp of the last known status update in ISO 8601 format",
-						"type": "`$STRING`",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "message",
+						"title": "Message",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "A message providing context or commentary about Kim's current outdoor activity status",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "online",
+						"title": "Online",
+						"type": "`$BOOLEAN`",
 						"req": true,
 						"short": "Indicates whether Kim is currently online or has touched grass (offline)",
-						"type": "`$BOOLEAN`",
 					},
 				},
 				"name": "get_grass_touch_status",
@@ -116,17 +119,18 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/",
 								"segments": []any{},
-								"select": map[string]any{},
+								"parts": []any{},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

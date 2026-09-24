@@ -1,7 +1,7 @@
 // Typed models for the GrassTouch SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,9 +14,6 @@ import (
 
 // GetGrassTouchStatus is the typed data model for the get_grass_touch_status entity.
 type GetGrassTouchStatus struct {
-	LastSeen string `json:"lastSeen"`
-	Message string `json:"message"`
-	Online bool `json:"online"`
 }
 
 // GetGrassTouchStatusLoadMatch is the typed request payload for GetGrassTouchStatus.LoadTyped.

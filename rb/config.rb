@@ -98,23 +98,26 @@ module GrassTouchConfig
         "get_grass_touch_status" => {
           "fields" => [
             {
-              "format" => "date-time",
               "name" => "lastSeen",
+              "title" => "Last Seen",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Timestamp of the last known status update in ISO 8601 format",
-              "type" => "`$STRING`",
+              "format" => "date-time",
             },
             {
               "name" => "message",
+              "title" => "Message",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "A message providing context or commentary about Kim's current outdoor activity status",
-              "type" => "`$STRING`",
             },
             {
               "name" => "online",
+              "title" => "Online",
+              "type" => "`$BOOLEAN`",
               "req" => true,
               "short" => "Indicates whether Kim is currently online or has touched grass (offline)",
-              "type" => "`$BOOLEAN`",
             },
           ],
           "name" => "get_grass_touch_status",
@@ -124,17 +127,18 @@ module GrassTouchConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/",
                   "segments" => [],
-                  "select" => {},
+                  "parts" => [],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },
