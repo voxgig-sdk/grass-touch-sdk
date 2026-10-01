@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 GrassTouchUtility::setRegistrar(function (GrassTouchUtility $u): void {
     $u->clean = [GrassTouchClean::class, 'call'];
+    $u->clean_add = [GrassTouchClean::class, 'add'];
+    $u->clean_explain = [GrassTouchDone::class, 'clean_explain'];
     $u->done = [GrassTouchDone::class, 'call'];
     $u->make_error = [GrassTouchMakeError::class, 'call'];
     $u->feature_add = [GrassTouchFeatureAdd::class, 'call'];

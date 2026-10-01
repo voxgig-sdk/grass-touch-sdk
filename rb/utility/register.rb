@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 GrassTouchUtility.registrar = ->(u) {
   u.clean = GrassTouchUtilities::Clean
+  u.clean_add = GrassTouchUtilities::CleanAdd
+  u.clean_explain = GrassTouchUtilities::CleanExplain
   u.done = GrassTouchUtilities::Done
   u.make_error = GrassTouchUtilities::MakeError
   u.feature_add = GrassTouchUtilities::FeatureAdd
