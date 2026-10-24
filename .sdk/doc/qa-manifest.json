@@ -3,5 +3,15 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "A message providing context or commentary about Kim&#39;s current outdoor activity status",
+      "Indicates whether Kim is currently online or has touched grass (offline)",
+      "Production server",
+      "Successful response with grass touch status information",
+      "This API provides information about whether Kim has touched grass or not. It also includes details about the last known status and message regarding Kim&#39;s outdoor activity.",
+      "Timestamp of the last known status update in ISO 8601 format"
+    ]
+  }
 }

@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { GrassTouchSDK, BaseFeature, stdutil } from '../../..'
+import { GrassTouchSDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,18 @@ describe('GetGrassTouchStatusEntity', async () => {
   })
 
 
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = GrassTouchSDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.GetGrassTouchStatus().load({"lastSeen":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.GRASS_TOUCH_TEST_LIVE
@@ -51,7 +63,7 @@ describe('GetGrassTouchStatusEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"lastSeen":{"a":true,"fo":"date-time","h":"Last Seen","n":"lastSeen","r":true,"sh":"Timestamp of the last known status update in ISO 8601 format","t":"`$STRING`","key$":"lastSeen","index$":0},"message":{"a":true,"h":"Message","n":"message","r":true,"sh":"A message providing context or commentary about Kim's current outdoor activity status","t":"`$STRING`","key$":"message","index$":1},"online":{"a":true,"h":"Online","n":"online","r":true,"sh":"Indicates whether Kim is currently online or has touched grass (offline)","t":"`$BOOLEAN`","key$":"online","index$":2}},"name":"get_grass_touch_status","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/","q":{},"r":{},"s":[],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"get_grass_touch_status","name__orig":"get_grass_touch_status","Name":"GetGrassTouchStatus","name_":"get_grass_touch_status","name-":"get-grass-touch-status","NAME":"GET_GRASS_TOUCH_STATUS","index$":0}, {"active":true,"entity":"get_grass_touch_status","key$":"BasicGetGrassTouchStatusFlow","kind":"basic","name":"BasicGetGrassTouchStatusFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"get_grass_touch_status_ref01","srcdatavar":"get_grass_touch_status_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-get_grass_touch_status_ref01"}}],"index$":0}]}, 'GetGrassTouchStatus', {"GET /":{"protocol":"http","parameters":[]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"lastSeen":{"a":true,"fo":"date-time","h":"Last Seen","n":"lastSeen","r":true,"sh":"Timestamp of the last known status update in ISO 8601 format","t":"`$STRING`","key$":"lastSeen","index$":0},"message":{"a":true,"h":"Message","n":"message","r":true,"sh":"A message providing context or commentary about Kim's current outdoor activity status","t":"`$STRING`","key$":"message","index$":1},"online":{"a":true,"h":"Online","n":"online","r":true,"sh":"Indicates whether Kim is currently online or has touched grass (offline)","t":"`$BOOLEAN`","key$":"online","index$":2}},"name":"get_grass_touch_status","op":{"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /","source":"openapi3","version":2},"g":{},"k":"http","m":"GET","o":"/","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"get_grass_touch_status","name__orig":"get_grass_touch_status","Name":"GetGrassTouchStatus","name_":"get_grass_touch_status","name-":"get-grass-touch-status","NAME":"GET_GRASS_TOUCH_STATUS","index$":0}, {"active":true,"entity":"get_grass_touch_status","key$":"BasicGetGrassTouchStatusFlow","kind":"basic","name":"BasicGetGrassTouchStatusFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"get_grass_touch_status_ref01","srcdatavar":"get_grass_touch_status_ref01_data","suffix":"_dt0"},"m":{},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-get_grass_touch_status_ref01"}}],"index$":0}]}, 'GetGrassTouchStatus', {"GET /":{"protocol":"http","parameters":[]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -72,6 +84,12 @@ describe('GetGrassTouchStatusEntity', async () => {
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options
